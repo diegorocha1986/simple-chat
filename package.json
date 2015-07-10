@@ -1,0 +1,31 @@
+{
+  "name": "simple-chat",
+  "version": "1.0.0",
+  "description": "Simple chat app using NodeJS, SocketIO, Express and JADE",
+  "main": "index.js",
+  "scripts": {
+    "test": "bin/www"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/qix1986/simple-chat.git"
+  },
+  "keywords": [
+    "chat",
+    "nodejs",
+    "socketio",
+    "express"
+  ],
+  "author": "Diego Rocha",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/qix1986/simple-chat/issues"
+  },
+  "homepage": "https://github.com/qix1986/simple-chat",
+  "dependencies": {
+    "express": "^4.13.1",
+    "gulp": "^3.9.0",
+    "jade": "^1.11.0",
+    "socket.io": "^1.3.5"
+  }
+}
