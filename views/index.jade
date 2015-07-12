@@ -3,8 +3,8 @@ extends layouts/default
 block panel
   .mdl-grid
     .mdl-cell.mdl-cell--10-col
-      .messages-wrapper.js-messages
-        .messages-container
+      .messages-wrapper
+        .messages-container.js-messages
           p.mdl-typography--subhead
             span.user.mdl-shadow--2dp Juca:
             span.message  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
@@ -16,7 +16,12 @@ block panel
             span.message
               i.material-icons mood
     .mdl-cell.mdl-cell--2-col
-      p.mdl-typography--body-2.mdl-typography--text-uppercase Usuários (0)
+      p.mdl-typography--body-2.mdl-typography--text-uppercase
+        span.mdl-badge(data-badge="1") Usuários
+      .users-list.js-users
+        p.user
+          i.material-icons person
+          span Juca
 
 block controls
   form.controls(action="#")
@@ -28,3 +33,16 @@ block controls
       .mdl-cell.mdl-cell--1-col
         button.mdl-button.mdl-js-button.mdl-button--fab.mdl-js-ripple-effect.mdl-button--colored
           i.material-icons send
+
+block login
+  aside.modal
+    .overlay
+    .modal-container.mdl-card.mdl-shadow--2dp
+      .mdl-card__title.mdl-card--expand
+        h2.mdl-card__title-text Choose your nickname
+      .mdl-card__supporting-text
+        .mdl-textfield.mdl-js-textfield
+          input.mdl-textfield__input(type="text", id="nickname")
+          label.mdl-textfield__label(for="nickname") Nickname
+      .mdl-card__actions.mdl-card--border
+        a.mdl-button.mdl-button--colored.mdl-js-button.mdl-js-ripple-effect Choose

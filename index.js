@@ -2,7 +2,12 @@ var port = process.env.PORT || 3000;
 var express = require('express');
 var app = express();
 var path = require('path');
-var http = require('http').Server(app);
+var http = require('http').createServer(app);
+var io = require('socket.io')(http);
+
+io.on('connection', function(socket){
+	console.log('A user connected');
+});
 
 app.set('port', port);
 
