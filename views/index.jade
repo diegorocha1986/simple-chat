@@ -1,4 +1,30 @@
 extends layouts/default
 
-block content
-  h1 Simple Chat
+block panel
+  .mdl-grid
+    .mdl-cell.mdl-cell--10-col
+      .messages-wrapper.js-messages
+        .messages-container
+          p.mdl-typography--subhead
+            span.user.mdl-shadow--2dp Juca:
+            span.message  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+          p.mdl-typography--subhead
+            span.user.mdl-shadow--2dp Juca:
+            span.message  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+          p.mdl-typography--subhead
+            span.user.mdl-shadow--2dp Juca:
+            span.message
+              i.material-icons mood
+    .mdl-cell.mdl-cell--2-col
+      p.mdl-typography--body-2.mdl-typography--text-uppercase Usuários (0)
+
+block controls
+  form.controls(action="#")
+    .mdl-grid.mdl-shadow--4dp
+      .mdl-cell.mdl-cell--11-col
+        .mdl-textfield.mdl-js-textfield
+          input.mdl-textfield__input(type="text", id="message")
+          label.mdl-textfield__label(for="message") Message
+      .mdl-cell.mdl-cell--1-col
+        button.mdl-button.mdl-js-button.mdl-button--fab.mdl-js-ripple-effect.mdl-button--colored
+          i.material-icons send
