@@ -5,8 +5,24 @@ var path = require('path');
 var http = require('http').createServer(app);
 var io = require('socket.io')(http);
 
+var connectedUsers = {},
+	contUsers = 0;
+
 io.on('connection', function(socket){
-	console.log('A user connected');
+	socket.on('add user', function(user){
+		socket.username = user;
+		connectedUsers[user] = user;
+		contUsers++;
+
+		socket.emit('login', {
+			numUsers: contUsers
+		});
+
+		socket.broadcast.emit('user joined', {
+			user: socket.username,
+			numUsers: contUsers
+		});
+	});
 });
 
 app.set('port', port);
