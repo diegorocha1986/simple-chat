@@ -12,7 +12,7 @@ io.on('connection', function(socket){
 	socket.on('add user', function(user){
 		socket.username = user;
 		connectedUsers[user] = user;
-		contUsers++;
+		++contUsers;
 
 		socket.emit('login', {
 			numUsers: contUsers
@@ -20,6 +20,20 @@ io.on('connection', function(socket){
 
 		socket.broadcast.emit('user joined', {
 			user: socket.username,
+			numUsers: contUsers
+		});
+	});
+
+	socket.on('new message', function(data){
+		socket.broadcast.emit('new message', data);
+	});
+
+	socket.on('disconnect user', function(user){
+		delete connectedUsers[user];
+		--contUsers;
+
+		socket.broadcast.emit('user left', {
+			user: user,
 			numUsers: contUsers
 		});
 	});
